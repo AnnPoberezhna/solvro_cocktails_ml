@@ -1,0 +1,6 @@
+# Ignore virtual environment
+.venv/
+
+# Ignore other typical files and directories
+__pycache__/
+.idea/
