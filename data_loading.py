@@ -1,4 +1,3 @@
-# data_loading.py
 import pandas as pd
 
 def load_data(filepath):
@@ -16,4 +15,3 @@ def load_data(filepath):
 
     ingredients_df = pd.DataFrame(ingredients_data)
     return data, ingredients_df
-
