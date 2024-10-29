@@ -10,7 +10,7 @@ from eda import perform_eda
 data, ingredients_df = load_data("cocktail_dataset.json")
 
 # EDA
-perform_eda(data)
+perform_eda(data, ingredients_df)
 
 # Preprocess ingredients, measures, and glass type
 ingredient_names_df = preprocess_ingredients(ingredients_df)

@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-def perform_eda(df: pd.DataFrame):
+def perform_eda(df: pd.DataFrame, ingredients_df, top_n=20):
     """Perform Exploratory Data Analysis on the cocktail dataset."""
 
     # Distribution of cocktail categories
@@ -33,4 +33,23 @@ def perform_eda(df: pd.DataFrame):
     plt.savefig('./result/alcohol_distribution.png')
     plt.xticks(rotation=0)
 
+    plt.show()
+
+    # Calculate ingredient frequency
+    ingredient_counts = ingredients_df['ingredient_name'].value_counts().head(top_n)
+
+    # Plot the top N most frequently used ingredients
+    plt.figure(figsize=(10, 6))
+    sns.barplot(
+        x=ingredient_counts.values,
+        y=ingredient_counts.index,
+        palette="viridis",
+        hue=ingredient_counts.index,
+        dodge=False,
+        legend=False
+    )
+    plt.title(f'Top {top_n} Most Common Ingredients')
+    plt.xlabel('Frequency')
+    plt.ylabel('Ingredient')
+    plt.savefig('./result/ingredient_frequency.png')
     plt.show()
